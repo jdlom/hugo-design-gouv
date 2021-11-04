@@ -1,0 +1,38 @@
+
+<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb-1">
+        <ol class="fr-breadcrumb__list">
+            <li>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
+            </li>
+            {{ template "breadcrumb" (dict "currentPage" .Page "id" .UniqueID) }}
+        </ol>
+    </div>
+</nav>
+
+{{/* 
+    code from thread
+    https://discourse.gohugo.io/t/implementing-breadcrumb-navigation-in-hugo/1048/42 
+*/}}
+    
+<!-- templates -->
+{{ define "breadcrumb" }}
+    {{ if .currentPage.Parent }}
+    {{ if ne .currentPage.Parent .IsHome }}
+    {{ template "breadcrumb" (dict "currentPage" .currentPage.Parent) }}
+    {{ end }}
+    {{ if eq .id .currentPage.UniqueID }}
+    <li>
+        <a class="fr-breadcrumb__link" aria-current="page">{{ .currentPage.Title }}</a>
+    </li>
+    {{ else }}
+    <li>
+        <a class="fr-breadcrumb__link" href="{{ .currentPage.RelPermalink }}">{{ .currentPage.Title }}</a>
+    </li>
+    {{ end }}
+{{ end }}
+{{ end }}
+
+
+

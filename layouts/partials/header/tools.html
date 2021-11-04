@@ -1,0 +1,41 @@
+{{ $theme := $.Site.Params.theme }}
+{{ $header := $.Site.Params.header }}
+
+<div class="fr-header__tools">
+    <div class="fr-header__tools-links">
+        <ul class="fr-links-group">
+            <li>
+                <a class="fr-link fr-fi-add-circle-line" href="#">Créer un espace</a>
+            </li>
+            <li>
+                <a class="fr-link fr-fi-lock-line" href="#">Se connecter</a>
+            </li>
+            <li>
+                <a class="fr-link fr-fi-account-line" href="#">S’enregistrer</a>
+            </li>
+            {{ with $theme }}
+                {{ if eq .switch_theme_position "header"}}
+                <li>
+                    <button class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+                </li>
+                {{ end }}
+            {{ end }}
+        </ul>
+    </div>
+    {{ with $header.search | default true }}
+    <div class="fr-header__search fr-modal" id="modal-851">
+        <div class="fr-container fr-container-lg--fluid">
+            <button class="fr-link--close fr-link" aria-controls="modal-851">Fermer</button>
+            <div class="fr-search-bar" id="search-850" role="search">
+                <label class="fr-label" for="search-850-input">Recherche
+                </label>
+                <input class="fr-input" placeholder="Rechercher" type="search" id="search-850-input" name="search-850-input">
+                <button class="fr-btn" title="Rechercher">
+                    Rechercher
+                </button>
+            </div>
+        </div>
+    </div>
+    {{ end }}
+</div>
+

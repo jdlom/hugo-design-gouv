@@ -1,0 +1,11 @@
+{{ $header := . }}
+{{ with .service }}
+<div class="fr-header__service">
+    <a href="{{ $header.url | default "/" }}" title="{{ .title | default ""}}">
+      <p class="fr-header__service-title">{{ .title }}</p>
+    </a>
+    {{ with .tagline }}
+    <p class="fr-header__service-tagline">{{ . | safeHTML }}</p>
+    {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,6 @@
+{{ with .logo }}
+<div class="fr-header__operator">
+    <img src="{{ .url }}" class="fr-responsive-img" style="min-width:5rem;max-width:10rem;"
+        alt="{{ .alt | default "logo" }}" />
+</div>
+{{ end }}

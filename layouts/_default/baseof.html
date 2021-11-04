@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{{ $theme := $.Site.Params.theme }}
+
+
+{{ partial "template/dollar2br.html" .}}
+
+<html lang="fr" data-fr-theme="{{ $theme.style | default "default" }}">
+
+{{ partial "head/head.html" . }}
+
+<body class="fr-mb-12w" style="margin:0; padding:0;">
+    <div class="fr-mt-3v">
+    {{ partial "header/header.html" . }}
+    </div>
+
+    <div class="fr-container">
+        {{ partial "breadcrumb/breadcrumb.html" . }}
+    </div>
+    <div class="fr-container">
+            <div class="fr-grid-row fr-grid-row--gutters">
+                <div class="fr-col-lg-8  fr-col-md-12 fr-col-sm-12">
+                    {{ block "main" . }}{{ end }} 
+                </div>
+            </div>
+    </div>
+
+            
+    {{ partial "footer/footer.html" . }}
+    {{ partial "dialog/dialog-switch-theme.html" . }}
+</body>
+
+</html>
+
+

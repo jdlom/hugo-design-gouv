@@ -4,7 +4,7 @@
         {{ with .service }}
             {{- partial "header/bloc-marque-logo.html" $header -}}
         {{ else }}
-            <a href="{{ $header.url }}" title="{{ replace $header.bloc_marque "$" "" }}">
+            <a href="{{ $header.url }}" title="{{ partial "functions/remove_dollar.html" $header.bloc_marque }}">
                 {{ partial "header/bloc-marque-logo.html" $header}}
             </a>
         {{ end }}

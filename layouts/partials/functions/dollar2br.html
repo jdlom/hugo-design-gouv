@@ -1,0 +1,5 @@
+{{/* Transform $ to <br>. */}}
+
+{{ $string := replace . "$" "<br>"  | safeHTML }}
+{{ return $string }}
+

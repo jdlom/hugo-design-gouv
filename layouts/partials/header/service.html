@@ -4,8 +4,8 @@
     <a href="{{ $header.url | default "/" }}" title="{{ .title | default ""}}">
       <p class="fr-header__service-title">{{ .title }}</p>
     </a>
-    {{ with .tagline }}
-    <p class="fr-header__service-tagline">{{ . | safeHTML }}</p>
+    {{ with partial "functions/dollar2br" .tagline }}
+    <p class="fr-header__service-tagline">{{ . }}</p>
     {{ end }}
 </div>
 {{ end }}

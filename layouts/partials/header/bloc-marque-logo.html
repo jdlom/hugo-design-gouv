@@ -1,7 +1,7 @@
 <p class="fr-logo fr-logo--sm">
     {{ with .bloc_marque }}
-    {{ template "dollar2br" . }}
+    {{ partial "functions/dollar2br" . }}
     {{ else }}
-    {{ "République <br> française" | safeHTML }}
+    {{ partial "functions/dollar2br" "République $ française" }}
     {{ end }}
 </p>

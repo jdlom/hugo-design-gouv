@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 {{ $theme := $.Site.Params.theme }}
 
-
-{{ partial "template/dollar2br.html" .}}
-
 <html lang="fr" data-fr-theme="{{ $theme.style | default "default" }}">
 
 {{ partial "head/head.html" . }}

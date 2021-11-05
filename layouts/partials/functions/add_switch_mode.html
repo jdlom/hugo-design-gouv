@@ -1,0 +1,30 @@
+{{/* 
+Function to add the switch theme button in header or footer
+
+Params 
+    .theme
+    .position "header" or "footer"
+
+Usage :
+    partial "functions/add_switch_mode" (dict "theme" $theme "position" "header")
+
+Used in : 
+    header>tools.html
+    footer.html
+*/}}
+
+{{ $position := .position }}
+
+{{ with .theme }}
+    {{ if or (eq .switch_theme_position $position) (eq .switch_theme_position "both")}}
+        {{ if (eq $position "header") }}
+            <li>
+                <button class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+            </li>
+        {{ else }}
+            <li class="fr-footer__bottom-item">
+                <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+            </li>
+        {{ end }}
+    {{ end }}
+{{ end }}

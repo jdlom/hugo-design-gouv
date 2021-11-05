@@ -13,13 +13,7 @@
             <li>
                 <a class="fr-link fr-fi-account-line" href="#">S’enregistrer</a>
             </li>
-            {{ with $theme }}
-                {{ if eq .switch_theme_position "header"}}
-                <li>
-                    <button class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
-                </li>
-                {{ end }}
-            {{ end }}
+            {{ partial "functions/add_switch_mode" (dict "theme" $theme "position" "header") }}
         </ul>
     </div>
     {{ with $header.search | default true }}

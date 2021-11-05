@@ -1,5 +1,7 @@
 <!-- pied de page avec logo opérateur -->
-{{ $footer := .Site.Params.footer }}
+{{ $footer := $.Site.Params.footer }}
+{{ $theme := $.Site.Params.theme }}
+
 <footer class="fr-footer" role="contentinfo" id="footer">
     <div class="fr-container">
         <div class="fr-footer__body fr-footer__body--operator">
@@ -45,6 +47,7 @@
                 <li class="fr-footer__bottom-item">
                     <a class="fr-footer__bottom-link" href="#">Gestion des cookies</a>
                 </li>
+                {{ partial "functions/add_switch_mode" (dict "theme" $theme "position" "footer") }}
             </ul>
             <div class="fr-footer__bottom-copy">
                 <p>Sauf mention contraire, tous les textes de ce site sont sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank">licence etalab-2.0</a>

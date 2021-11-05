@@ -1,12 +1,10 @@
 <!-- pied de page avec logo opérateur -->
+{{ $footer := .Site.Params.footer }}
 <footer class="fr-footer" role="contentinfo" id="footer">
     <div class="fr-container">
         <div class="fr-footer__body fr-footer__body--operator">
             <div class="fr-footer__brand fr-enlarge-link">
-                <p class="fr-logo" title="république française">
-                    république
-                    <br>française
-                </p>
+                {{ partial "functions/bloc-marque-logo.html"  $footer }}
                 <a class="fr-footer__brand-link" href="/" title="Retour à l’accueil">
                     <!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
                     <img class="fr-footer__logo" src="/img/logo-operator-h.png" alt="[A MODIFIER | text alternatif de l’image]">

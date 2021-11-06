@@ -1,5 +1,6 @@
 {{ $theme := $.Site.Params.theme }}
 {{ $header := $.Site.Params.header }}
+{{ $disableSearch := $.Site.Params.disableSearch }}
 
 <div class="fr-header__tools">
     <div class="fr-header__tools-links">
@@ -16,7 +17,7 @@
             {{ partial "functions/add_switch_mode" (dict "theme" $theme "position" "header") }}
         </ul>
     </div>
-    {{ with $header.search | default true }}
+    {{ with (not $disableSearch) | default true }}
     <div class="fr-header__search fr-modal" id="modal-851">
         <div class="fr-container fr-container-lg--fluid">
             <button class="fr-link--close fr-link" aria-controls="modal-851">Fermer</button>

@@ -1,12 +1,10 @@
-{{ with . }}
 {{ $header := . }}
     <div class="fr-mb-auto">
         {{ with .service }}
             {{- partial "functions/bloc-marque-logo.html" $header -}}
         {{ else }}
-            <a href="{{ $header.url }}" title="{{ partial "functions/remove_dollar.html" $header.bloc_marque }}">
-                {{ partial "functions/bloc-marque-logo.html" $header}}
+            <a href="{{ $header.url | default "/" }}" title="{{ partial "functions/remove_dollar.html" (default $header.bloc_marque "Accueil") }}">
+                {{ partial "functions/bloc-marque-logo.html" $header }}
             </a>
         {{ end }}
     </div>
-{{ end }}

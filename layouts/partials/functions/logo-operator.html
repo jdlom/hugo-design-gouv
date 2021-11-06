@@ -1,0 +1,23 @@
+{{/* 
+    Function to add the logo operator in header or footer
+    
+    Params 
+        .logo
+        .position "header" or "footer"
+    
+    Usage :
+        partial "functions/logo-operator.html" (dict "logo" $.Site.Parmas.header.logo "position" "header")
+    
+    Used in : 
+        header>tools.html
+        footer.html
+    */}}
+
+{{ $position := .position }}
+{{ with .logo }}
+<div class="fr-{{$position}}__operator">
+
+    <img src="{{ .url }}" class="fr-responsive-img" style="min-width:5rem;max-width:10rem;"
+        alt="{{ .alt | default "logo" }}" />
+</div>
+{{ end }}

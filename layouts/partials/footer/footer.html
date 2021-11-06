@@ -2,7 +2,9 @@
 {{ $footer := $.Site.Params.footer }}
 {{ $theme := $.Site.Params.theme }}
 {{ $footer_menus := $.Site.Menus.footer }}
-{{ $footer_description := $.Site.Params.footer.description }}
+{{ $footer := $.Site.Params.footer }}
+{{ $footer_logo := $footer.logo }}
+{{ $footer_description := $footer.description }}
 
 <footer class="fr-footer" role="contentinfo" id="footer">
     <div class="fr-container">
@@ -10,8 +12,7 @@
             <div class="fr-footer__brand fr-enlarge-link">
                 {{ partial "functions/bloc-marque-logo.html"  $footer }}
                 <a class="fr-footer__brand-link" href="/" title="Retour à l’accueil">
-                    <!-- L'alternative de l'image (attribut alt) doit impérativement être renseignée et reprendre le texte visible dans l’image -->
-                    <img class="fr-footer__logo" src="/img/logo-operator-h.png" alt="[A MODIFIER | text alternatif de l’image]">
+                    {{ partial "functions/logo-operator.html" (dict "logo" $footer_logo "position" "footer") }}
                 </a>
             </div>
             <div class="fr-footer__content">

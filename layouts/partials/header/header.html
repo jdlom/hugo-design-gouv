@@ -5,7 +5,7 @@
                 <div class="fr-header__brand fr-enlarge-link">
                     <div class="fr-header__brand-top">
                         {{- partial "header/bloc-marque.html" $.Site.Params.header -}}
-                        {{- partial "header/logo-operator.html" $.Site.Params.header -}}
+                        {{- partial "functions/logo-operator.html" (dict "logo" $.Site.Params.header.logo "position" "header") -}}
                         {{- partial "header/navbar.html" $.Site.Params.header -}}    
                     </div>
                     {{- partial "header/service.html" $.Site.Params.header -}}

@@ -2,6 +2,7 @@
 {{ $footer := $.Site.Params.footer }}
 {{ $theme := $.Site.Params.theme }}
 {{ $footer_menus := $.Site.Menus.footer }}
+{{ $footer_description := $.Site.Params.footer.description }}
 
 <footer class="fr-footer" role="contentinfo" id="footer">
     <div class="fr-container">
@@ -14,7 +15,9 @@
                 </a>
             </div>
             <div class="fr-footer__content">
-                <p class="fr-footer__content-desc">Lorem [...] elit ut.</p>
+                {{ with $footer_description }}
+                <p class="fr-footer__content-desc">{{ . }}</p>
+                {{ end }}
                 <ul class="fr-footer__content-list">
                     <li class="fr-footer__content-item">
                         <a class="fr-footer__content-link" href="https://legifrance.gouv.fr">legifrance.gouv.fr</a>
